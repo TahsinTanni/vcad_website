@@ -27,6 +27,21 @@ export interface StudentWorkItem {
   caption: string;
 }
 
+export interface CampusInfo {
+  name: string;
+  imageUrl: string;
+}
+
+export interface CurriculumYear {
+  year: string;
+  courses: string[];
+}
+
+export interface FeeItem {
+  label: string;
+  value: string;
+}
+
 export interface Course {
   slug: string;
   title: string;
@@ -39,14 +54,21 @@ export interface Course {
   avatarUrls: string[];
   avatarOverflowCount?: number;
 
-  // Course-details-page-only fields (Stage 4). Optional so the Explore
-  // Courses grid works fine on courses that don't have them filled in yet.
+  // Course-details-page-only fields. Optional so the Explore Courses grid
+  // (and the details page) still render sensibly for courses that don't
+  // have full editorial content filled in yet — see README for the
+  // fallback behavior.
+  level?: string;
   overview?: string;
   highlights?: CourseHighlight[];
   keyDetails?: CourseKeyDetails;
   admissions?: CourseAdmissions;
   studentWork?: StudentWorkItem[];
   applyLabel?: string;
+  curriculum?: CurriculumYear[];
+  requirements?: string[];
+  feesFunding?: FeeItem[];
+  campus?: CampusInfo;
 }
 
 export const courses: Course[] = [
@@ -119,6 +141,83 @@ export const courses: Course[] = [
         "https://lh3.googleusercontent.com/aida-public/AB6AXuAI6X4OR6XahCQYT8WCMvHziOM5Rp5y9wbrXWS41UhTI2Grv8y3PsfaSALc8mpNRVOVwAiwIlJC42G_3cBbkRrxMmSyxROE6Y7qv_SufqVgaeLfmb4y2BSG2h8y8uNEB_YX_lmVGRHeaC281ObmaJbxL3jldCRZ72uOR9ZbD-SR3eFaXXuAdcoD-8DQpIpVlm2Xhho-eK49m1G4krsWQLJZQotTL5KermgO-aKhvRCTGVmpAk0fW7y68Q",
     },
     applyLabel: "Apply for Fall 2024",
+    level: "Undergraduate",
+    overview:
+      "The Interactive Media Design program focuses on the conceptualization, design, and production of interactive experiences across emerging platforms. Students will explore generative graphics, physical computing, data visualization, and immersive environments (AR/VR).",
+    highlights: [
+      {
+        icon: "deployed_code",
+        title: "Creative Coding",
+        description:
+          "Master p5.js, Processing, and TouchDesigner to build generative systems.",
+      },
+      {
+        icon: "view_in_ar",
+        title: "Immersive Media",
+        description:
+          "Design spatial interfaces and interactive narratives in Unity and Unreal Engine.",
+      },
+    ],
+    curriculum: [
+      {
+        year: "Year 1: Foundations of Interaction",
+        courses: [
+          "IMD101: Introduction to Creative Computation",
+          "DES105: Visual Syntax and Form",
+          "HIS110: History of Digital Arts",
+        ],
+      },
+      {
+        year: "Year 2: Systems & Sensors",
+        courses: [
+          "IMD201: Physical Computing (Arduino/Sensors)",
+          "DAT205: Data Visualization Studio",
+        ],
+      },
+    ],
+    requirements: [
+      "High school diploma or equivalent (minimum GPA 3.0)",
+      "Portfolio of 5–10 creative works (digital or physical)",
+      "Statement of purpose (500 words)",
+      "Two letters of recommendation",
+      "English proficiency: IELTS 6.5+ or TOEFL 90+ for international applicants",
+    ],
+    feesFunding: [
+      { label: "Tuition (International)", value: "$24,500 / yr" },
+      { label: "Tuition (Domestic)", value: "$14,200 / yr" },
+      { label: "Materials & Equipment Fee", value: "$1,200 / yr" },
+      {
+        label: "Merit Scholarships",
+        value: "Up to $10,000 / yr, awarded on portfolio review",
+      },
+    ],
+    campus: {
+      name: "Main Campus",
+      imageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDLNkcmsB9FIGB_5T5f0TCRgqXUyXTX0s0l9JQ3x5fzU7sHpMpjCKXQYQTnLE28khuIgz9wJ6Lj9KSMwiO7hknIXyBBzKDqvW9ZbXuX1I5ty9tDj9DeAP2qmWYuuEdZT3kroi0mcdTdNzwTGs8Mhpo70cFvLHaaYsbJo-H93x53wdC8ehglO825HtdrL6JUWKUD7DhmmWwL5pcvFcNXLpAcMY9X1LGyxKpFAt-kov1_-Mx8FfKoL0gMhw",
+    },
+    studentWork: [
+      {
+        imageUrl:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuCA8Y0bM1J6OfXoHwRJJAa9dafHttikudxMq2jQxNikblxdR32JW-NnofIlc000HUuJ8tcP-sNUeQNo-jpugzW7yQwpEfogQXNBXpWMkVXyxEzCmSo9Fi8Uj13Dv0bjgBPUblRSpZWy4eTkl7q6iDTCdM02B6IKTdpFM2XP3VboddjUZpQzNHetgB7bRG6FzTPHEU5Y3ncdnWRJTCX8GNeIE95lXvVvuYKHWUa6Fhthe-IornHVTcfJkQ",
+        caption: "Generative data visualization — particle systems study",
+      },
+      {
+        imageUrl:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuAWBkaGWDg9Sri-h2SUszrYTEl78fyHim7O7-ikbjfbN8HTXfHpPy7uVu7f8b6v95ihJD8wA7L3aDF5J2wyB-GlP-OfryaJyOzY281RsXll1EMoUUf1HT3FIUF2ho_OxqVwemZOzuf_emIjndKn1o5EKwJnuEikKtVK_SwtNTTL-vMrjX1SXERMmmegQF6UFzVYeHOnARXLV_YQXMVGH0g6Q4qzzPQnzF7ljGaEDJ6-AWYNoa5yMs0glw",
+        caption: "Physical computing — hardware prototype wiring",
+      },
+      {
+        imageUrl:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuCZUJxJP_x-e2SDopfJJx1bQlI1gfHkIE3gOagZCMRGDBFww0xxpE7NtEeQnAQcZTLgX_vhmo3ds5ewBT-kKxhPIeE1jUBCoXUFSCn_nKtYAcXB2yJ1GPU6ynj2dqnPy7EnyPXRmth7zxLeuxPhxY6tLfrJhwve_yNke-CNtShuZyKHp300wnBNwm-JAT9ptuJeUuWcmJbrigGtPWHyJO3-8GvKYgP-Sm9rQREF43BF3En_XtP5Mzyp9Q",
+        caption: "Projection mapping installation, gallery showcase",
+      },
+      {
+        imageUrl:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuAXuSTyHI9GAotKs0d-UugnI7vH0nSJ5o0-SLxhv3JhUhdmx94qMqaWVYkQOgO6R7YSVbwt9qrAfMoqcmevhHe9qap0bllRDW0voQBRjBIFJAst0cpr19MTxMXJ-rIyFt6dGey-Cxyt21VxUZi6PlYeQHG1hjuo6Lr_yA85GA5_moZ_Ac3W_u2YAo8XNQLdAApO9bgyIeUCJQraA5UELMtlcqhT_Qq51OrTmYVi3PC5sKX9ubiMiU3aUw",
+        caption: "UI/UX dashboard concept, dark mode system",
+      },
+    ],
   },
   {
     slug: "bfa-graphic-design",
