@@ -31,7 +31,7 @@ export default function CoursesPage() {
       <section className="max-w-frame mx-auto w-full pt-xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-lg relative">
           <div className="max-w-3xl">
-            <h1 className="font-page-title text-page-title text-primary tracking-tighter mb-sm relative">
+            <h1 className="font-page-title text-page-title-mobile md:text-page-title text-primary tracking-tighter mb-sm relative">
               Explore Our Courses
             </h1>
             <p className="font-lead text-lead text-on-surface-variant max-w-2xl">

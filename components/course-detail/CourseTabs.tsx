@@ -19,7 +19,7 @@ function ComingSoon({ label }: { label: string }) {
 function OverviewPanel({ course }: { course: Course }) {
   return (
     <div className="space-y-lg">
-      <h3 className="font-sub-heading text-sub-heading text-on-surface">
+      <h3 className="font-sub-heading text-card-title md:text-sub-heading text-on-surface">
         Program Overview
       </h3>
       <p className="font-body text-body text-on-surface-variant">
@@ -60,7 +60,7 @@ function CurriculumPanel({ course }: { course: Course }) {
 
   return (
     <div className="space-y-md">
-      <h3 className="font-sub-heading text-sub-heading text-on-surface mb-lg">
+      <h3 className="font-sub-heading text-card-title md:text-sub-heading text-on-surface mb-lg">
         Core Curriculum
       </h3>
       {course.curriculum.map((block) => {
@@ -114,7 +114,7 @@ function RequirementsPanel({ course }: { course: Course }) {
   }
   return (
     <div className="space-y-lg">
-      <h3 className="font-sub-heading text-sub-heading text-on-surface">
+      <h3 className="font-sub-heading text-card-title md:text-sub-heading text-on-surface">
         Admission Requirements
       </h3>
       <ul className="space-y-md">
@@ -139,7 +139,7 @@ function FeesPanel({ course }: { course: Course }) {
   }
   return (
     <div className="space-y-lg">
-      <h3 className="font-sub-heading text-sub-heading text-on-surface">
+      <h3 className="font-sub-heading text-card-title md:text-sub-heading text-on-surface">
         Fees & Funding
       </h3>
       <ul className="space-y-md">
@@ -166,7 +166,7 @@ export default function CourseTabs({ course }: { course: Course }) {
 
   return (
     <div className="flex flex-col gap-lg">
-      <div className="flex gap-sm p-1 bg-surface-container-highest rounded-[34px] w-fit border border-outline-variant/10 overflow-x-auto">
+      <div className="flex gap-sm p-1 bg-surface-container-highest rounded-[34px] max-w-full w-fit border border-outline-variant/10 overflow-x-auto">
         {TABS.map((tab) => {
           const isActive = tab === active;
           return (

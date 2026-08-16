@@ -77,7 +77,7 @@ export function FeatureCard({ course }: { course: Course }) {
           <Badges course={course} />
         </div>
         <div>
-          <h2 className="font-section-heading text-section-heading text-primary group-hover:text-tertiary-fixed transition-colors line-clamp-2 mb-md">
+          <h2 className="font-section-heading text-sub-heading md:text-section-heading text-primary group-hover:text-tertiary-fixed transition-colors line-clamp-2 mb-md">
             {course.title}
           </h2>
           <p className="font-body text-body text-on-surface-variant max-w-2xl mb-lg">

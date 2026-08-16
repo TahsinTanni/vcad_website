@@ -28,7 +28,7 @@ export default function StudentWorkGallery({
 
   return (
     <div className="space-y-lg">
-      <h3 className="font-sub-heading text-sub-heading text-on-surface flex items-center gap-md">
+      <h3 className="font-sub-heading text-card-title md:text-sub-heading text-on-surface flex items-center gap-md">
         <span className="w-8 h-[2px] bg-primary block" /> Student Work
       </h3>
 

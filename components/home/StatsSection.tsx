@@ -35,7 +35,7 @@ function StatCard({ stat, active }: { stat: (typeof stats)[number]; active: bool
         stat.showBar ? "sm:col-span-2" : ""
       }`}
     >
-      <div className="font-hero-display text-hero-display text-on-surface flex items-baseline gap-xs">
+      <div className="font-hero-display text-hero-display-mobile md:text-hero-display text-on-surface flex items-baseline gap-xs">
         <span>{value.toLocaleString()}</span>
         <span className="text-tertiary text-sub-heading">{stat.suffix}</span>
       </div>
@@ -91,7 +91,7 @@ export default function StatsSection() {
       <div className="max-w-frame mx-auto px-margin relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
           <div className="space-y-lg">
-            <h2 className="font-section-heading text-section-heading text-on-surface">
+            <h2 className="font-section-heading text-sub-heading md:text-section-heading text-on-surface">
               By the <span className="text-tertiary">Numbers</span>
             </h2>
             <p className="font-lead text-lead text-on-surface-variant">

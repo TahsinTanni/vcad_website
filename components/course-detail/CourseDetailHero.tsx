@@ -20,7 +20,7 @@ export default function CourseDetailHero({ course }: { course: Course }) {
               {course.duration}
             </span>
           </div>
-          <h1 className="font-section-heading text-section-heading text-on-surface mb-md">
+          <h1 className="font-section-heading text-sub-heading md:text-section-heading text-on-surface mb-md">
             {course.title}
           </h1>
           <p className="font-lead text-lead text-on-surface-variant max-w-2xl">

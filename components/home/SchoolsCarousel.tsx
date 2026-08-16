@@ -39,7 +39,7 @@ export default function SchoolsCarousel() {
       <div className="max-w-frame mx-auto px-margin flex flex-col gap-xl">
         <div className="flex flex-col md:flex-row justify-between items-end gap-lg">
           <div className="space-y-sm">
-            <h2 className="font-section-heading text-section-heading text-on-surface flex items-center gap-md">
+            <h2 className="font-section-heading text-sub-heading md:text-section-heading text-on-surface flex items-center gap-md">
               Schools of Study
               <span className="h-[2px] w-16 bg-gradient-to-r from-tertiary to-transparent rounded-full hidden md:block" />
             </h2>
