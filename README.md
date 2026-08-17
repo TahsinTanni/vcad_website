@@ -1,8 +1,9 @@
-# VCAD — Web Developer Code Test
+# VCAD - Web Developer Code Test
 
-Next.js (App Router) + TypeScript + Tailwind CSS build of the VCAD site.
+Next.js (App Router) + TypeScript + Tailwind CSS build of three VCAD page
+types: Homepage, Explore Our Courses, and Course Details.
 
-## Run locally
+## How to run it locally
 
 ```bash
 npm install
@@ -11,37 +12,36 @@ npm run dev
 
 Open http://localhost:3000.
 
-## Stage plan
+- `/` - Homepage
+- `/courses` - Explore Our Courses
+- `/courses/interactive-media-design-generative-arts` - Course Details page
+  with full detail content
 
-- **Stage 1 (this commit)** — project scaffold, Tailwind design tokens, Inter +
-  Material Symbols fonts, shared `Header`/`Footer` components wired into the
-  root layout, placeholder homepage to sanity-check the tokens render
-  correctly.
-- **Stage 2** — Homepage (`/`): hero, Schools of Study carousel, By the
-  Numbers stats.
-- **Stage 3** — Course data model (`/data/courses.ts`) + Explore Courses page
-  (`/courses`): asymmetric card grid, school filter tabs, loading/empty
-  states.
-- **Stage 4** — Course Details page (`/courses/[slug]`): key details,
-  admissions card, map, tabs, student work gallery.
-- **Stage 5** — Polish, responsive pass, deploy.
+## How far I got, and why I prioritised what I did
 
-## Design tokens note
+All three requested page types are built, along with shared Header and Footer
+components and a course data model that feeds both course pages. I worked in
+that order because the pages increase in complexity: the homepage is mostly
+static content, Explore Courses adds real course data plus an asymmetric grid
+that adapts as the data changes, and Course Details adds the most interactive
+surface area with tabs, a curriculum accordion, and a student work image
+lightbox.
 
-The brief's token sheet (`aaa.txt`) lists a smaller set of brand colors (Base
-`#030A2E`, Pink `#FF379E`, Cyan `#00FFD2`, etc). The exported design frames in
-the assessment zip (`code.html` + `screen.png` per page) render with a
-different, more granular "Academic Noir" Material-3-style palette (`surface`
-`#111318`, `primary-container` `#030a2e`, `tertiary` `#00e0b8`, ...).
+The course detail route is generated for all sample courses. The Interactive
+Media Design & Generative Arts course has the full detail content; the other
+sample courses fall back gracefully to the available summary content.
 
-I pixel-sampled the page screenshots to check which set is actually rendered
-(e.g. the section background sampled to `#111318` and the footer to `#0c0e13`
-— both exact matches to the M3 token set, not the brand sheet). So `tailwind.config.ts`
-uses the token names/values from the exported frames, since those are what's
-literally on the design canvas. Radii and type scale match both sources
-exactly, so there's no conflict there. Flagging this here since it's the kind
-of thing the brief asks to inspect rather than guess.
+## One decision the designs did not specify
 
-## Progress log
+The designs did not specify loading or empty states for the courses page. For
+loading, I used a skeleton in the same asymmetric grid shape as the real
+content to avoid layout shift. For an empty result, I added a clear "View all
+programs" reset button so the user has an immediate way back from a dead end,
+especially on mobile.
 
-- ✅ Stage 1 complete.
+## What I would do next given more time
+
+I would fill in full curriculum, requirements, fees, and campus content for the
+remaining sample courses; build the About, Admissions, and Contact pages; replace
+the simulated loading delay with a real data source; and add proper Open Graph
+metadata and share imagery.
